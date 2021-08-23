@@ -1,6 +1,6 @@
 // Color Theme
 export const colors = {
-  available: 'lightgray',
+  available: '#eee',
   used: 'lightgreen',
   wrong: 'lightcoral',
   candidate: 'deepskyblue',

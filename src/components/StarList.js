@@ -1,14 +1,11 @@
 import React from "react";
-import {utils} from "../Utils";
 import Star from "./Star";
+import {utils} from "../Utils";
 
-export default function StarList() {
-  const starsCount = utils.random(1, 9);
-  const stars = utils.range(1, starsCount);
-
+export default function StarList({ count }) {
   return (
     <div className="left">
-      {stars.map((id) => <Star key={id} />)}
+      {utils.range(1, count).map(id => <Star key={id} />)}
     </div>
   );
 }
