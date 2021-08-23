@@ -1,7 +1,7 @@
 import React from "react";
 import {colors} from "../Utils";
 
-export const STATE = {
+export const NumberState = {
   AVAILABLE: "available",
   USED: "used",
   WRONG: "wrong",
@@ -9,14 +9,8 @@ export const STATE = {
   isUsed: function (state) {
     return state === this.USED;
   },
-  isCandidate: function (state) {
-    return state === this.CANDIDATE;
-  },
   isAvailable: function (state) {
     return state === this.AVAILABLE;
-  },
-  isWrong: function (state) {
-    return state === this.WRONG;
   },
 };
 

@@ -1,4 +1,5 @@
 import React from "react";
+import {GameState} from "./Game";
 
 export default function PlayAgain({ gameStatus, onClick }) {
   return (
@@ -6,9 +7,9 @@ export default function PlayAgain({ gameStatus, onClick }) {
       <div className="game-done">
         <div
           className="message"
-          style={{ color: gameStatus === 'lost' ? 'red' : 'green'}}
+          style={{ color: GameState.isLost(gameStatus) ? 'red' : 'green'}}
         >
-          {gameStatus === 'lost' ? 'Game Over' : 'Nice'}
+          {GameState.isLost(gameStatus) ? 'Game Over' : 'Nice'}
         </div>
         <button onClick={onClick}>Play Again</button>
       </div>

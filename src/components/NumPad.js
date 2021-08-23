@@ -1,17 +1,17 @@
 import React from "react";
 import {utils} from "../Utils";
-import Button, {STATE} from "./Button";
+import Button, {NumberState} from "./Button";
 
 export default function NumPad({ available, stars, candidates, onClickHandler }) {
   const numPad = utils.range(1, 9);
   const candidatesAreWrong = utils.sum(candidates) > stars;
   const numberState = number => {
     if (!available.includes(number)) {
-      return "used";
+      return NumberState.USED;
     } else if (candidates.includes(number)) {
-      return candidatesAreWrong ? "wrong" : "candidate";
+      return candidatesAreWrong ? NumberState.WRONG : NumberState.CANDIDATE;
     } else {
-      return "available";
+      return NumberState.AVAILABLE;
     }
   };
 
