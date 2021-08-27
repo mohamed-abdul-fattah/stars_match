@@ -22,15 +22,16 @@ export default function Game({ startGame }) {
     stars,
     available,
     candidates,
+    secondsLeft,
     setGameState,
   } = useGameState();
 
   const gameStatus = available.length === 0
     ? GameState.WON
-    : GameState.RUNNING;
+    : secondsLeft === 0 ? GameState.LOST : GameState.RUNNING;
 
   const onClickHandler = (number, state) => {
-    if (NumberState.isUsed(state)) {
+    if (NumberState.isUsed(state) || !GameState.isRunning(gameStatus)) {
       return;
     }
 
@@ -52,7 +53,7 @@ export default function Game({ startGame }) {
           : <StarList count={stars} />}
         <NumPad available={available} candidates={candidates} stars={stars} onClickHandler={onClickHandler} />
       </div>
-      <div className="timer">Time Remaining: 10</div>
+      <div className="timer">Time Remaining: {secondsLeft}</div>
     </div>
   );
 }
